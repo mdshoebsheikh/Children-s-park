@@ -189,6 +189,54 @@ void halfcircle_tower(GLfloat rx,GLfloat ry,GLfloat x,GLfloat y)//radius_x,radiu
     }
     glEnd();
 }
+void cloud()
+{
+    //sky__sun
+    glColor3f(1,0.8,0.2);
+    circle(5,6,-40,40);
+
+
+    //cloud
+    glColor3f(1,1,1);
+    circle(3,5,c-14,39);
+    glColor3f(1,1,1);
+    circle(3,3,c-11,33);
+    glColor3f(1,1,1);
+    circle(3,4,c-9,39);
+    glColor3f(1,1,31);
+    circle(4,3,c-7,38);
+    glColor3f(1,1,1);
+    circle(3,7,c-9,39);
+    glColor3f(1,1,1);
+    circle(3,3,c-6,33);
+    glColor3f(1,1,1);
+    circle(3,4,c-4,39);
+    glColor3f(1,1,31);
+    circle(4,3,c-2,38);
+
+    glColor3f(1,1,1);
+    circle(3,5,c+44,39);
+    glColor3f(1,1,1);
+    circle(3,3,c+41,33);
+    glColor3f(1,1,1);
+    circle(3,4,c+39,39);
+    glColor3f(1,1,31);
+    circle(4,3,c+37,38);
+    glColor3f(1,1,1);
+    circle(3,7,c+39,39);
+    glColor3f(1,1,1);
+    circle(3,3,c+36,33);
+    glColor3f(1,1,1);
+    circle(3,4,c+34,39);
+    glColor3f(1,1,31);
+    circle(4,3,c+32,38);
+
+
+
+
+}
+
+
 
 
 void underground()
@@ -724,10 +772,7 @@ void myDisplay()
         }
 
         background();
-
         underground();
-
-
 
         if (trnxx >= -57)
         {
@@ -740,14 +785,59 @@ void myDisplay()
         else
         trnxx  = 50;
 
-        //chorki
+
+        if (trnx >= trn_limit)
+        {
+            trnx -= 0.07;
+
+        }
+        else if((trnx<trn_limit1) and (trnx>31.5))
+        {
+            trn_limit = 100;
+            trnx -= 0.0199;
+            trny += 0.090;
+            glPushMatrix();
+            glTranslatef(0,-7,0);
+
+            glPopMatrix();
+
+        }
+        else if((trnx<trn_limit2) and (trnx> -0))
+        {
+            trn_limit1 = -100;
+            trnx -= 0.0999;
+
+            glPushMatrix();
+            glTranslatef(0,4,0);
+
+            glPopMatrix();
+        }
+        else if((trnx<trn_limit3) and (trnx> -4))
+        {
+            trn_limit2 = -100;
+            trnx -= 0.0199;
+            trny -= 0.090;
+
+        }
+        else if((trnx<trn_limit4) and (trnx> -50))
+        {
+            trn_limit3 = -100;
+            trnx -= 0.08;
+        }
+
+        else
+        {
+            trnx = 50;
+            trny = -25;
+            trn_limit = 35;
+            trn_limit1 = 35;
+            trn_limit2 = 31.6;
+            trn_limit3 = 0;
+            trn_limit4 = -4;
+        }
 
 
-
-
-
-
-
+cloud();
 
 
 
