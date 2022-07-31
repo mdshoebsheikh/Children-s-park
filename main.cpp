@@ -6917,57 +6917,7 @@ void myDisplay()
         chorki();
         horse_spinner();
 
-        if (trnx >= trn_limit)
-        {
-            trnx -= 0.07;
-            train();
-        }
-        else if((trnx<trn_limit1) and (trnx>31.5))
-        {
-            trn_limit = 100;
-            trnx -= 0.0199;
-            trny += 0.090;
-            glPushMatrix();
-            glTranslatef(0,-7,0);
-            train1();
-            glPopMatrix();
 
-        }
-        else if((trnx<trn_limit2) and (trnx> -0))
-        {
-            trn_limit1 = -100;
-            trnx -= 0.0999;
-
-            glPushMatrix();
-            glTranslatef(0,4,0);
-
-            glPopMatrix();
-            train();
-        }
-        else if((trnx<trn_limit3) and (trnx> -4))
-        {
-            trn_limit2 = -100;
-            trnx -= 0.0199;
-            trny -= 0.090;
-            train2();
-        }
-        else if((trnx<trn_limit4) and (trnx> -50))
-        {
-            trn_limit3 = -100;
-            trnx -= 0.08;
-            train();
-        }
-
-        else
-        {
-            trnx = 50;
-            trny = -25;
-            trn_limit = 35;
-            trn_limit1 = 35;
-            trn_limit2 = 31.6;
-            trn_limit3 = 0;
-            trn_limit4 = -4;
-        }
 
 
         //swings
